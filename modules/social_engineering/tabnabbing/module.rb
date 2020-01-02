@@ -7,7 +7,7 @@ class Tabnabbing < BeEF::Core::Command
   
 	def self.options
 		configuration = BeEF::Core::Configuration.instance
-		proto = configuration.get("beef.http.https.enable") == true ? "https" : "http"
+		proto = configuration.get("beef.http.https.protocol") == true ? "https" : "http"
 		uri = "#{proto}://#{configuration.get("beef.http.host")}:#{configuration.get("beef.http.port")}/demos/basic.html"
 		return [
 			{ 'name' => 'url', 'description' => 'Redirect URL', 'ui_label' => 'URL', 'value' => uri, 'width'=>'400px' },

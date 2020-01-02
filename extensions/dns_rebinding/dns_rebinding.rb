@@ -24,7 +24,7 @@ module DNSRebinding
                     response  = File.read(File.expand_path('../views/index.html', __FILE__))
                     configuration = BeEF::Core::Configuration.instance
 
-                    proto = configuration.get("beef.http.https.enable") == true ? "https" : "http"
+                    proto = configuration.get("beef.http.https.protocol") == true ? "https" : "http"
                     hook_file = configuration.get("beef.http.hook_file")
                     hook_uri = "#{proto}://#{configuration.get("beef.http.host")}:#{configuration.get("beef.http.port")}#{hook_file}"
                     

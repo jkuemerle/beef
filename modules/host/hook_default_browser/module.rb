@@ -8,7 +8,7 @@ class Hook_default_browser < BeEF::Core::Command
 
   def self.options
     configuration = BeEF::Core::Configuration.instance
-    proto = configuration.get("beef.http.https.enable") == true ? "https" : "http"
+    proto = configuration.get("beef.http.https.protocol") == true ? "https" : "http"
     hook_uri = "#{proto}://#{configuration.get("beef.http.host")}:#{configuration.get("beef.http.port")}/demos/report.html"
     return [
         #{'name' => 'url', 'ui_label'=>'URL', 'type' => 'text', 'width' => '400px', 'value' => hook_uri },
@@ -19,7 +19,7 @@ class Hook_default_browser < BeEF::Core::Command
 
 		#Get the servers configurations.
 		configuration = BeEF::Core::Configuration.instance
-		proto = configuration.get("beef.http.https.enable") == true ? "https" : "http"
+		proto = configuration.get("beef.http.https.protocol") == true ? "https" : "http"
 		
 		#The hook url to be replace the token in the original pdf file.
 		hook_uri = "#{proto}://#{configuration.get("beef.http.host")}:#{configuration.get("beef.http.port")}/demos/report.html"

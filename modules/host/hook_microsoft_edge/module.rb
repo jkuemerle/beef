@@ -7,7 +7,7 @@
 class Hook_microsoft_edge < BeEF::Core::Command
   def self.options
     @configuration = BeEF::Core::Configuration.instance
-    proto = @configuration.get("beef.http.https.enable") == true ? "https" : "http"
+    proto = @configuration.get("beef.http.https.protocol") == true ? "https" : "http"
     beef_host = @configuration.get("beef.http.public") || @configuration.get("beef.http.host")
     beef_port = @configuration.get("beef.http.public_port") || @configuration.get("beef.http.port")
     hook_uri = "#{proto}://#{beef_host}:#{beef_port}/demos/plain.html"

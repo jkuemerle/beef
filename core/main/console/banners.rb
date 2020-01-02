@@ -77,7 +77,7 @@ module Banners
     #
     def print_network_interfaces_routes
       configuration = BeEF::Core::Configuration.instance
-      proto = configuration.get("beef.http.https.enable") == true ? 'https' : 'http'
+      proto = configuration.get("beef.http.https.protocol") == true ? 'https' : 'http'
       hook_file = configuration.get("beef.http.hook_file")
       admin_ui = configuration.get("beef.extension.admin_ui.enable") ? true : false
       admin_ui_path = configuration.get("beef.extension.admin_ui.base_path")
