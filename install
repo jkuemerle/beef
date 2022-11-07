@@ -263,7 +263,6 @@ finish () {
 
 main () {
 
-  clear
 
   if [ -f core/main/console/beef.ascii ] ; then
     cat core/main/console/beef.ascii
@@ -275,12 +274,6 @@ main () {
   echo "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#"
   echo
 
-  if [ ! -z ${GITACTIONS:-} ];
-  then
-    info "Skipping: Running on Github Actions"
-  else
-    get_permission
-  fi
   check_os
   check_ruby_version
   check_rubygems
